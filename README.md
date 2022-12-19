@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Example on how to test your custom React hook
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repo is a supportive repo for my blog post on Medium: [How to unit test your custom React hook with React Testing Library and Jest](https://vaskort.medium.com/how-to-unit-test-your-custom-react-hook-with-react-testing-library-and-jest-8bdefafdc8a2)
 
 ## Available Scripts
 
