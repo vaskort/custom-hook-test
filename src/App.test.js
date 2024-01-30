@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, cleanup } from "@testing-library/react";
 import App from "./App";
 import useFetchedData from "./hooks/useFetchedData";
 
@@ -6,11 +6,14 @@ jest.mock("./hooks/useFetchedData");
 
 describe("App", () => {
   beforeEach(() => {
+    cleanup();
+
     useFetchedData.mockReturnValue({ data: null, error: null, loading: true });
   });
 
   it("should render loading text", () => {
     render(<App />);
+
     expect(screen.getByText("Loading...")).toBeInTheDocument();
   });
 
@@ -33,12 +36,14 @@ describe("App", () => {
 
     it("should render list of todos", async () => {
       render(<App />);
+
       const list = await screen.findByRole("list");
       expect(list).toBeInTheDocument();
     });
 
     it("should not render loading text", () => {
       render(<App />);
+
       const loadingText = screen.queryByText("Loading...");
       expect(loadingText).not.toBeInTheDocument();
     });
